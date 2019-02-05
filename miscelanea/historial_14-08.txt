@@ -1,0 +1,21 @@
+  334  mkdir -pv ejercicios/src/icc
+  340  man javac
+  341  mkdir ejercicios/build
+  342  javac -d ejercicios/build/ ejercicios/src/icc/Main.java 
+  344  cd ejercicios/
+  346  tree
+  347  nano src/icc/Main.java 
+  350  tree
+  351  javac -d build/ src/icc/Main.java 
+  357  java -cp build/ icc.Main 
+  358  clear
+  359  tree
+  360  cd ..
+  361  tree
+  362  cd miscelanea/
+  363  emacs &
+  406  git status 
+  407  git add miscelanea/historial_14-08.txt 
+  408  git commit -m "Se incluye el historial de comandos de la clase 03"
+  409  git push
+  411  history 6 | cat >> miscelanea/historial_14-08.txt 

@@ -1,0 +1,27 @@
+Fecha de elaboración: 14.08.2018
+Nota: Las rutas usadas por los siguientes comandos suponen que la ruta relativa (la posición actual)
+es dentro de ../LeonardoGallo/ejercicios/ para que no marquen error tienen que estar dentro de la
+carpeta de su almacén.
+
+Para compilar un paquete debes estar dentro de tu carpeta de proyecto, ya sea dentro de la carpeta
+ejercicios o prácticas, con la estructura acordada, ejecuta el siguiente comando:
+
+	javac -d build/ src/icc/Main.java
+
+La carpeta 'build' debe ser creada previamente. Recuerda poner en los *.java el nombre del paquete.
+
+Desde la misma ubicación de compilación ejecuta la clase o clases compiladas:
+
+	java -cp build/ icc.Main
+
+-cp es el classpath (ruta donde java buscará las clases)
+
+Para generar la documentación ejecuta:
+
+	javadoc -d javadoc/ -version -author -use src/icc/Main.java
+
+-d javadoc/ indica el lugar donde será guardada la documentación
+-version: Al ser generada la documentación se incluye el número de versión, de ser definido en la Clase.
+-author : En caso de ser definido el parámetro autor, este aparecerá en la documentación.
+-use: Es el parámetro utilizado para indicar los directorios donde residen las Clases sobre 
+las que será generada la documentación, en este caso ejercicios.
