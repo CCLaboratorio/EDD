@@ -22,6 +22,7 @@ public abstract class ProcesadorDeTexto {
      */
     public String leeTexto(String nombreArchivo) throws IOException{
         BufferedReader in = new BufferedReader(new FileReader(nombreArchivo));
+        in.close();
         return "";
     }
 

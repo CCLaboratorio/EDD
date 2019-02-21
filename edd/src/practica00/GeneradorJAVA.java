@@ -9,6 +9,13 @@ package practica00;
  *
  * @author lgallo
  */
-public class GeneradorJAVA {
+public class GeneradorJAVA extends ProcesadorDeTexto{
+
+    @Override
+    public String creaArchivo(String[] texto, String nombreArchivo) {
+        return "";
+    }
+
+
     
 }
