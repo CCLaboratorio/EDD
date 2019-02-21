@@ -1,4 +1,4 @@
-package edd.practica01;
+package practica01;
 
 /**
  * Clase que implementa 3 métodos distintos para resolver un mismo problema.
@@ -43,8 +43,10 @@ public class SecuenciaDeEnteros {
             for (int j = i; j < a.length; j++) {
                 sumAct += a[ j ];
                 //System.out.println("Suma parcial: " + sumAct);
-                if (sumAct > maxSum)
+                if (sumAct > maxSum){
                     maxSum = sumAct;
+                    System.out.println(i + " "+ j);
+                }
             }
         }
         return maxSum;
