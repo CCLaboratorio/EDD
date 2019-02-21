@@ -8,7 +8,8 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- *
+ * Clase para probar la implementación del factorial
+ * en su versión iterativa y recursiva.
  * @author lgallo
  */
 public class Ejercicio01Test {
