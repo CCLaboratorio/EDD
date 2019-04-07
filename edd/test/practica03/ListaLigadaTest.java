@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package practica03;
 
 import org.junit.After;
@@ -15,39 +10,112 @@ import static org.junit.Assert.*;
  * @author Leonardo Gallo
  */
 public class ListaLigadaTest {
-    
-    
-    private ListaLigada instance;
-    private Celda c1;
-    private Celda c2;
-    private Celda c3;
-    private Celda c4;
-    private Celda c5;
-    private Celda c6;
-    private Celda c7;
-    private Celda c8;
-    private Celda c9;
-    
+
+    private Lista<Integer> lista;
+    private String MSG_LONGITUD;
+    private String MSG_VACIA_F;
+
     public ListaLigadaTest() {
-        
     }
-    
+
     @Before
     public void setUp() {
-        Celda c9 = new Celda("1",null);
-        Celda c8 = new Celda("1",c9);
-        Celda c7 = new Celda("1",c8);
-        Celda c6 = new Celda("5",c7);
-        Celda c5 = new Celda("1",c6);
-        Celda c4 = new Celda("3",c5);
-        Celda c3 = new Celda("1",c4);
-        Celda c2 = new Celda("1",c3);
-        Celda c1 = new Celda("1",c2);
-        instance = new ListaLigada(c1,c9,9);
+        lista = new ListaLigada<>();
+        MSG_LONGITUD = "La longitud de la lista es incorrecta";
+        MSG_VACIA_F = "La lista no debe estar vacía";
+        lista.agregaInicio(5);
+        lista.agregaInicio(4);
+        lista.agregaInicio(3);
+        lista.agregaInicio(2);
+        lista.agregaInicio(1);
+        lista.agregaInicio(0);
     }
-    
+
     @After
     public void tearDown() {
+    }
+
+    /**
+     * Test of esVacia method, of class ListaDoblementeLigada.
+     */
+    @Test
+    public void testEsVaciaTrue() {
+        boolean expResult = true;
+        boolean result;
+        lista.limpia();
+        result = lista.esVacia();
+        System.out.println("...................................................");
+        System.out.println("Método : esVacia() caso verdadero");
+        assertEquals(expResult, result);
+        System.out.println("..............................................ÉXITO");
+    }
+
+    /**
+     * Test of esVacia method, of class ListaDoblementeLigada.
+     */
+    @Test
+    public void testEsVaciaFalse() {
+        boolean expResult = false;
+        boolean result;
+        System.out.println("...................................................");
+        System.out.println("Método : esVacia() caso falso");
+        try {
+            lista.limpia();
+            lista.agregaInicio(1);
+            lista.elimina(0);
+            lista.agregaFinal(2);
+            result = lista.esVacia();
+            assertEquals(MSG_LONGITUD, 1, lista.daLongitud());
+            assertEquals(MSG_VACIA_F, expResult, result);
+            System.out.println("..............................................ÉXITO");
+        } catch (NullPointerException e) {
+            fail("Error al usar agregaInicio | eliminar por índice | agregaFinal");
+        }
+    }
+
+    /**
+     * Test of agregaInicio method, of class ListaDoblementeLigada.
+     */
+    @Test
+    public void testAgregaInicio() {
+        try {
+            System.out.println("...................................................");
+            System.out.println("Método : agregaInicio()");
+            assertEquals(MSG_LONGITUD, 6, lista.daLongitud());
+            for (int i = 0; i < 6; i++) {
+                assertEquals(i, (int) lista.obtenElemento(i));
+            }
+            System.out.println("..............................................ÉXITO");
+        } catch (NullPointerException e) {
+            fail("No se pudo verificar la consistencia de la lista, verificar"
+                    + " el funcionamiento de obtenElemento");
+        }
+    }
+
+    /**
+     * Test of agregaInicio method, of class ListaDoblementeLigada.
+     */
+    @Test
+    public void testAgregaFinal() {
+        try {
+            System.out.println("...................................................");
+            System.out.println("Método : agregaFinal()");
+            lista.limpia();
+            lista.agregaFinal(0);
+            lista.agregaFinal(1);
+            lista.agregaFinal(2);
+            lista.agregaFinal(3);
+            lista.agregaFinal(4);
+            lista.agregaFinal(5);
+            assertEquals(MSG_LONGITUD, 6, lista.daLongitud());
+            for (int i = 0; i < 6; i++) {
+                assertEquals(i, (int) lista.obtenElemento(i));
+            }
+            System.out.println("..............................................ÉXITO");
+        } catch (NullPointerException e) {
+            fail("No se pudo verificar la consistencia de la lista, verificar"
+                    + " el funcionamiento de obtenElemento");
+        }
     }
 
     /**
@@ -55,12 +123,278 @@ public class ListaLigadaTest {
      */
     @Test
     public void testElimina_GenericType() {
-        System.out.println("elimina");
-        String elemento = "1";;
-        instance.elimina(elemento);
-        assertEquals(instance.getInicio(),c4);
-        assertEquals(instance.getInicio(),c6);
-        assertEquals(instance.daLongitud(), 2);
+        Integer elemento = 5;
+        System.out.println("...................................................");
+        System.out.println("Método : elimina(E elemento)");
+        try {
+            lista.limpia();
+            lista.agregaFinal(5);
+            lista.agregaFinal(0);
+            lista.agregaFinal(1);
+            lista.agregaFinal(2);
+            lista.agregaFinal(5);
+            lista.agregaFinal(5);
+            lista.agregaFinal(3);
+            lista.agregaFinal(4);
+            lista.agregaFinal(5);
+            lista.elimina(elemento);
+            assertEquals(MSG_LONGITUD, 5, lista.daLongitud());
+            for (int i = 0; i < 5; i++) {
+                System.out.println(lista.obtenElemento(i));
+                assertEquals(i, (int) lista.obtenElemento(i));
+            }
+            System.out.println("..............................................ÉXITO");
+        } catch (NullPointerException e) {
+            fail("El error puede ser causado si no está definido agragaFinal"
+                    + " u obtenElemento");
+        }
     }
 
+    /**
+     * Test of elimina method, of class ListaDoblementeLigada.
+     */
+    @Test
+    public void testElimina_int() {
+        System.out.println("...................................................");
+        System.out.println("Método : elimina(int indice)");
+        try {
+            System.out.println("La eliminación...");
+            assertEquals(2, (int) lista.elimina(2));
+            assertEquals(5, (int) lista.elimina(4));
+            assertEquals(0, (int) lista.elimina(0));
+            System.out.println("se realizó correctamente"
+                    + "\nLa consistencia de los datos...");
+            assertEquals(MSG_LONGITUD, 5, lista.daLongitud());
+            assertEquals(1, (int) lista.obtenElemento(0));
+            assertEquals(3, (int) lista.obtenElemento(1));
+            assertEquals(4, (int) lista.obtenElemento(2));
+            System.out.println("es correcta."
+                    + "\nImportante, verificar que el apuntador ultimo\n"
+                    + "esté referenciado a la celda que tiene por elemento 4");
+            System.out.println("..............................................ÉXITO");
+        } catch (NullPointerException e) {
+            fail("El error puede ser causado si no está definido agragaInicio o"
+                    + " por que al eliminar se genera un NullPointerException");
+        }
+    }
+
+    /**
+     * Test of elimina method, of class ListaDoblementeLigada.
+     */
+    @Test
+    public void testElimina_int_Excepcion_Neg() {
+        System.out.println("...................................................");
+        System.out.println("Método : elimina(int indice) ínidice negativo");
+        try {
+            lista.elimina(-1);
+            fail("Se esperaba una excepción con un mensaje personalizado");
+        } catch (IndexOutOfBoundsException e) {
+            assertNotEquals("Se esperaba un mensaje referente", e.getMessage(), null);
+        }
+        System.out.println("..............................................ÉXITO");
+    }
+
+    /**
+     * Test of elimina method, of class ListaDoblementeLigada.
+     */
+    @Test
+    public void testElimina_int_Excepcion() {
+        System.out.println("..................................................."
+                + "\nMétodo : elimina(int indice)"
+                + "\nCaso   : ínidice mayor a la longitud");
+        try {
+            lista.elimina(10);
+        } catch (IndexOutOfBoundsException e) {
+            assertNotEquals("Se esperaba un mensaje referente", e.getMessage(), null);
+            System.out.println("..............................................ÉXITO");
+        }
+    }
+
+    /**
+     * Test of agrega method, of class ListaDoblementeLigada.
+     */
+    @Test
+    public void testAgrega() {
+        System.out.println("...................................................");
+        System.out.println("Método : agregaInicio()");
+        try {
+            lista.limpia();
+            lista.agrega(5, 0);
+            lista.agrega(0, 0);
+            lista.agrega(2, 1);
+            lista.agrega(3, 2);
+            lista.agrega(4, 3);
+            lista.agrega(1, 1);
+            assertEquals(MSG_LONGITUD, 6, lista.daLongitud());
+            for (int i = 0; i < 6; i++) {
+                assertEquals(i, (int) lista.obtenElemento(i));
+            }
+            System.out.println("..............................................ÉXITO");
+        } catch (NullPointerException e) {
+            fail("No se pudo verificar la consistencia de la lista, verificar"
+                    + " el funcionamiento de obtenElemento");
+        }
+    }
+
+    /**
+     * Test of elimina method, of class ListaDoblementeLigada.
+     */
+    @Test
+    public void testAgrega_Mayor() {
+        System.out.println("..................................................."
+                + "\nMétodo : agrega(E elemento, int indice)"
+                + "\nCaso   : ínidice mayor a la longitud");
+        try {
+            lista.limpia();
+            lista.agrega(0, 10);
+        } catch (IndexOutOfBoundsException e) {
+            assertNotEquals("Se esperaba un mensaje referente", e.getMessage(), null);
+            System.out.println("..............................................ÉXITO");
+        }
+    }
+
+    /**
+     * Test of elimina method, of class ListaDoblementeLigada.
+     */
+    @Test
+    public void testAgrega_Neg() {
+        System.out.println("..................................................."
+                + "\nMétodo : agrega(E elemento, int indice)"
+                + "\nCaso   : ínidice mayor a la longitud");
+        try {
+            lista.agrega(0, -10);
+        } catch (IndexOutOfBoundsException e) {
+            assertNotEquals("Se esperaba un mensaje referente", e.getMessage(), null);
+            System.out.println("..............................................ÉXITO");
+        }
+    }
+
+    /**
+     * Test of estaContenido method, of class ListaDoblementeLigada.
+     */
+    @Test
+    public void testEstaContenido() {
+        Integer elemento1 = 3;
+        Integer elemento2 = 10;
+        boolean result;
+        System.out.println("..................................................."
+                + "\nMétodo : estaContenido()"
+                + "\nCaso   : Verdadero");
+        try {
+            result = lista.estaContenido(elemento1);
+            assertEquals(true, result);
+            System.out.println("..............................................ÉXITO");
+            System.out.println("..................................................."
+                    + "\nMétodo : estaContenido()"
+                    + "\nCaso   : False");
+            result = lista.estaContenido(elemento2);
+            assertEquals(false, result);
+            System.out.println("..............................................ÉXITO");
+        } catch (NullPointerException e) {
+            fail("Esta excepción pudo haber sido generada por el mal"
+                    + " funcionamiento del método agregaInicio.");
+        }
+    }
+
+    /**
+     * Test of obtenElemento method, of class ListaDoblementeLigada.
+     */
+    @Test
+    public void testObtenElemento() {
+        System.out.println("..................................................."
+                + "\nMétodo : obtenElemento(int indice)");
+        try {
+            assertEquals(2, (int) lista.obtenElemento(2));
+            System.out.println("..............................................ÉXITO");
+        } catch (NullPointerException e) {
+            fail("Esta excepción pudo haber sido generada por el mal"
+                    + " funcionamiento del método agregaInicio.");
+        }
+    }
+
+    /**
+     * Test of obtenElemento method, of class ListaDoblementeLigada.
+     */
+    @Test
+    public void testObtenElemento_Excepcion() {
+        System.out.println("..................................................."
+                + "\nMétodo : obtenElemento(int indice) índice fuera de rango");
+        try {
+            lista.limpia();
+            lista.obtenElemento(2);
+        } catch (NullPointerException e) {
+            assertNotEquals("Se esperaba un mensaje referente", e.getMessage(), null);
+            System.out.println("..............................................ÉXITO");
+        }
+    }
+
+    /**
+     * Test of obtenIndice method, of class ListaDoblementeLigada.
+     */
+    @Test
+    public void testObtenIndice() {
+        Integer elemento = 3;
+        System.out.println("..................................................."
+                + "\nMétodo : obtenIndice(E elemento)");
+        try {
+            assertEquals(2, lista.obtenIndice(elemento));
+        } catch (NullPointerException e) {
+            fail("Esta excepción pudo haber sido generada por el mal"
+                    + " funcionamiento del método agregaInicio.");
+        }
+
+    }
+
+    /**
+     * Test of obtenIndice method, of class ListaDoblementeLigada.
+     */
+    @Test
+    public void testObtenIndice_Negativo() {
+        boolean result;
+        System.out.println("..................................................."
+                + "\nMétodo : obtenIndice(E elemento)"
+                + "\nCaso   : Negativo");
+        lista.limpia();
+        result = lista.obtenElemento(2) < 0;
+        assertEquals(true, result);
+        System.out.println("..............................................ÉXITO");
+    }
+
+    /**
+     * Test of limpia method, of class ListaDoblementeLigada.
+     */
+    @Test
+    public void testLimpia() {
+        System.out.println("..................................................."
+                + "\nMétodo : limpia()");
+        lista.limpia();
+        assertEquals("La lista no es vacía", true, lista.esVacia());
+        System.out.println("..............................................ÉXITO");
+    }
+
+    /**
+     * Test of equals method, of class ListaDoblementeLigada.
+     */
+    @Test
+    public void testEquals() {
+        System.out.println("..................................................."
+                + "\nMétodo : equals(Object o)");
+        ListaLigada<Integer> lista2 = new ListaLigada<>();
+        lista2.agregaInicio(5);
+        lista2.agregaInicio(4);
+        lista2.agregaInicio(3);
+        lista2.agregaInicio(2);
+        lista2.agregaInicio(1);
+        lista2.agregaInicio(0);
+        assertEquals(true, lista.equals(lista2));
+        lista2.limpia();
+        lista2.agregaInicio(5);
+        lista2.agregaInicio(4);
+        lista2.agregaInicio(3);
+        lista2.agregaInicio(2);
+        lista2.agregaInicio(0);
+        lista2.agregaInicio(1);
+        assertEquals(false, lista.equals(lista2));
+        System.out.println("..............................................ÉXITO");
+    }
 }
