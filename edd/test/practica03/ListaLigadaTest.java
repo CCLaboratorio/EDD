@@ -379,7 +379,7 @@ public class ListaLigadaTest {
     public void testEquals() {
         System.out.println("..................................................."
                 + "\nMétodo : equals(Object o)");
-        ListaLigada<Integer> lista2 = new ListaLigada<>();
+        Lista<Integer> lista2 = new ListaLigada<>();
         lista2.agregaInicio(5);
         lista2.agregaInicio(4);
         lista2.agregaInicio(3);
