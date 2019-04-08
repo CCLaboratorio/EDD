@@ -1,11 +1,11 @@
-package edd.practica03;
+package practica03;
 
 /**
  * COMÉNTAME...
  * @author
- * @param <T>
+ * @param <E>
  */
-public interface Lista<T> {
+public interface Lista<E> {
 
     /**
      * COMÉNTAME...
@@ -23,54 +23,54 @@ public interface Lista<T> {
      * COMÉNTAME...
      * @param elemento 
      */
-    void elimina(T elemento);
+    void elimina(E elemento);
 
     /**
      * COMÉNTAME...
      * @param indice
      * @return 
      */
-    T elimina(int indice);
+    E elimina(int indice) throws IndexOutOfBoundsException;
 
     /**
      * COMÉNTAME...
      * @param elemento 
      */
-    void agregaInicio(T elemento);
+    void agregaInicio(E elemento);
 
     /**
      * COMÉNTAME...
      * @param elemento 
      */
-    void agregaFinal(T elemento);
+    void agregaFinal(E elemento);
     
     /**
      * COMÉNTAME...
      * @param elemento
      * @param indice 
      */
-    void agrega(T elemento, int indice);
+    void agrega(E elemento, int indice);
 
     /**
      * COMÉNTAME...
      * @param elemento
      * @return 
      */
-    boolean estaContenido(T elemento);
+    boolean estaContenido(E elemento);
 
     /**
      * COMÉNTAME...
      * @param indice
      * @return 
      */
-    T obtenElemento(int indice);
+    E obtenElemento(int indice);
 
     /**
      * COMÉNTAME...
      * @param elemento
      * @return 
      */
-    int obtenIndice(T elemento);
+    int obtenIndice(E elemento);
 
     /**
      * COMÉNTAME...

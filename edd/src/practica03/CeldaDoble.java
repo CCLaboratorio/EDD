@@ -1,4 +1,4 @@
-package edd.practica03;
+package practica03;
 
 /**
  *

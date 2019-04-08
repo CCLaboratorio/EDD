@@ -1,15 +1,15 @@
-package edd.practica03;
+package practica03;
 
 /**
  * COMÉNTAME...
  * @author 
- * @param <T>
+ * @param <E>
  */
-public class ListaDoblementeLigada<T> implements Lista<T> {
+public class ListaDoblementeLigada<E> implements Lista<E> {
     
     //incluye  las variables de clase
-    private CeldaDoble<T> inicio;
-    private CeldaDoble<T> ultimo;
+    private CeldaDoble<E> inicio;
+    private CeldaDoble<E> ultimo;
     private int longitud;
     
     /**
@@ -33,42 +33,42 @@ public class ListaDoblementeLigada<T> implements Lista<T> {
     }
 
     @Override
-    public void elimina(T elemento) {
+    public void elimina(E elemento) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public T elimina(int indice) {
+    public E elimina(int indice) throws IndexOutOfBoundsException{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void agregaInicio(T elemento) {
+    public void agregaInicio(E elemento) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void agregaFinal(T elemento) {
+    public void agregaFinal(E elemento) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void agrega(T elemento, int indice) {
+    public void agrega(E elemento, int indice) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean estaContenido(T elemento) {
+    public boolean estaContenido(E elemento) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public T obtenElemento(int indice) {
+    public E obtenElemento(int indice) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public int obtenIndice(T elemento) {
+    public int obtenIndice(E elemento) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
