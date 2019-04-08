@@ -69,7 +69,7 @@ public class ListaLigadaTest {
             assertEquals(MSG_VACIA_F, expResult, result);
             System.out.println("..............................................ÉXITO");
         } catch (NullPointerException e) {
-            fail("Error al usar agregaInicio | eliminar por índice | agregaFinal");
+            fail("Esta prueba hace uso de agregaInicio | eliminar por índice | agregaFinal");
         }
     }
 
@@ -87,8 +87,8 @@ public class ListaLigadaTest {
             }
             System.out.println("..............................................ÉXITO");
         } catch (NullPointerException e) {
-            fail("No se pudo verificar la consistencia de la lista, verificar"
-                    + " el funcionamiento de obtenElemento");
+            fail("No se pudo verificar la consistencia de la lista, se recomienda"
+                    + " revisar también el funcionamiento de obtenElemento");
         }
     }
 
@@ -113,8 +113,8 @@ public class ListaLigadaTest {
             }
             System.out.println("..............................................ÉXITO");
         } catch (NullPointerException e) {
-            fail("No se pudo verificar la consistencia de la lista, verificar"
-                    + " el funcionamiento de obtenElemento");
+            fail("No se pudo verificar la consistencia de la lista, se recomienda"
+                    + " revisar también el funcionamiento de obtenElemento");
         }
     }
 
@@ -145,7 +145,7 @@ public class ListaLigadaTest {
             }
             System.out.println("..............................................ÉXITO");
         } catch (NullPointerException e) {
-            fail("El error puede ser causado si no está definido agragaFinal"
+            fail("El error también puede ser causado si no está definido agragaFinal"
                     + " u obtenElemento");
         }
     }
@@ -164,7 +164,7 @@ public class ListaLigadaTest {
             assertEquals(0, (int) lista.elimina(0));
             System.out.println("se realizó correctamente"
                     + "\nLa consistencia de los datos...");
-            assertEquals(MSG_LONGITUD, 5, lista.daLongitud());
+            assertEquals(MSG_LONGITUD, 3, lista.daLongitud());
             assertEquals(1, (int) lista.obtenElemento(0));
             assertEquals(3, (int) lista.obtenElemento(1));
             assertEquals(4, (int) lista.obtenElemento(2));
@@ -173,7 +173,7 @@ public class ListaLigadaTest {
                     + "esté referenciado a la celda que tiene por elemento 4");
             System.out.println("..............................................ÉXITO");
         } catch (NullPointerException e) {
-            fail("El error puede ser causado si no está definido agragaInicio o"
+            fail("El error también puede ser causado si no está definido agragaInicio o"
                     + " por que al eliminar se genera un NullPointerException");
         }
     }
@@ -203,7 +203,7 @@ public class ListaLigadaTest {
                 + "\nMétodo : elimina(int indice)"
                 + "\nCaso   : ínidice mayor a la longitud");
         try {
-            lista.elimina(10);
+            lista.elimina(6);
         } catch (IndexOutOfBoundsException e) {
             assertNotEquals("Se esperaba un mensaje referente", e.getMessage(), null);
             System.out.println("..............................................ÉXITO");
@@ -216,10 +216,10 @@ public class ListaLigadaTest {
     @Test
     public void testAgrega() {
         System.out.println("...................................................");
-        System.out.println("Método : agregaInicio()");
+        System.out.println("Método : agrega()");
         try {
             lista.limpia();
-            lista.agrega(5, 0);
+            lista.agregaInicio(5);
             lista.agrega(0, 0);
             lista.agrega(2, 1);
             lista.agrega(3, 2);
@@ -231,8 +231,8 @@ public class ListaLigadaTest {
             }
             System.out.println("..............................................ÉXITO");
         } catch (NullPointerException e) {
-            fail("No se pudo verificar la consistencia de la lista, verificar"
-                    + " el funcionamiento de obtenElemento");
+            fail("No se pudo verificar la consistencia de la lista, se recomienda"
+                    + " revisar también el funcionamiento de obtenElemento");
         }
     }
 
@@ -260,7 +260,7 @@ public class ListaLigadaTest {
     public void testAgrega_Neg() {
         System.out.println("..................................................."
                 + "\nMétodo : agrega(E elemento, int indice)"
-                + "\nCaso   : ínidice mayor a la longitud");
+                + "\nCaso   : ínidice negativo");
         try {
             lista.agrega(0, -10);
         } catch (IndexOutOfBoundsException e) {
@@ -291,7 +291,7 @@ public class ListaLigadaTest {
             assertEquals(false, result);
             System.out.println("..............................................ÉXITO");
         } catch (NullPointerException e) {
-            fail("Esta excepción pudo haber sido generada por el mal"
+            fail("Esta excepción también pudo haber sido generada por el mal"
                     + " funcionamiento del método agregaInicio.");
         }
     }
@@ -307,7 +307,7 @@ public class ListaLigadaTest {
             assertEquals(2, (int) lista.obtenElemento(2));
             System.out.println("..............................................ÉXITO");
         } catch (NullPointerException e) {
-            fail("Esta excepción pudo haber sido generada por el mal"
+            fail("Esta excepción también pudo haber sido generada por el mal"
                     + " funcionamiento del método agregaInicio.");
         }
     }
@@ -318,11 +318,11 @@ public class ListaLigadaTest {
     @Test
     public void testObtenElemento_Excepcion() {
         System.out.println("..................................................."
-                + "\nMétodo : obtenElemento(int indice) índice fuera de rango");
+                + "\nMétodo : obtenElemento(int indice)"
+                + "\nCaso   : índice igual a la longitud");
         try {
-            lista.limpia();
-            lista.obtenElemento(2);
-        } catch (NullPointerException e) {
+            lista.obtenElemento(6);
+        } catch (IndexOutOfBoundsException e) {
             assertNotEquals("Se esperaba un mensaje referente", e.getMessage(), null);
             System.out.println("..............................................ÉXITO");
         }
@@ -337,10 +337,11 @@ public class ListaLigadaTest {
         System.out.println("..................................................."
                 + "\nMétodo : obtenIndice(E elemento)");
         try {
-            assertEquals(2, lista.obtenIndice(elemento));
+            assertEquals(3, lista.obtenIndice(elemento));
+            System.out.println("..............................................ÉXITO");
         } catch (NullPointerException e) {
-            fail("Esta excepción pudo haber sido generada por el mal"
-                    + " funcionamiento del método agregaInicio.");
+            fail("Esta excepción también pudo haber sido generada por el mal"
+                    + " un mal manejo de los índices");
         }
 
     }
@@ -355,7 +356,7 @@ public class ListaLigadaTest {
                 + "\nMétodo : obtenIndice(E elemento)"
                 + "\nCaso   : Negativo");
         lista.limpia();
-        result = lista.obtenElemento(2) < 0;
+        result = lista.obtenIndice(2) < 0;
         assertEquals(true, result);
         System.out.println("..............................................ÉXITO");
     }
@@ -379,7 +380,7 @@ public class ListaLigadaTest {
     public void testEquals() {
         System.out.println("..................................................."
                 + "\nMétodo : equals(Object o)");
-        ListaLigada<Integer> lista2 = new ListaLigada<>();
+        Lista<Integer> lista2 = new ListaLigada<>();
         lista2.agregaInicio(5);
         lista2.agregaInicio(4);
         lista2.agregaInicio(3);
