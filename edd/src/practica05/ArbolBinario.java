@@ -2,7 +2,7 @@ package practica05;
 
 /**
  * COMÉNTAME...
- * @author Leonardo
+ * @author Leonardo Gallo
  * @param <E>
  */
 public interface ArbolBinario<E> {

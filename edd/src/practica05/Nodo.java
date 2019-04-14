@@ -3,7 +3,7 @@ package practica05;
 /**
  * COMÉNTAME...
  * 
- * @author Leonardo
+ * @author Leonardo Gallo
  * @param <T>
  */
 public class Nodo<T> {
@@ -16,7 +16,7 @@ public class Nodo<T> {
     Nodo<T> izquierdo;
     Nodo<T> derecho;
     //Nodo<T> padre; //opcional
-    //incluye nivel del nodo
+    //incluye el nivel del nodo en caso de ser necesario
     
     /**
      * COMÉNTAME...

@@ -3,7 +3,7 @@ package practica05;
 /**
  * Biblioteca de libros,
  * Se crea una interfaz de usuario para acceder a la biblioteca.
- * @author Leonardo
+ * @author Leonardo Gallo
  */
 public class UsoBiblioteca {
 

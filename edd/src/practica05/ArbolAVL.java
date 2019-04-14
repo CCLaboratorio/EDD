@@ -2,7 +2,7 @@ package practica05;
 
 /**
  * COMÉNTAME...
- * @author Leonardo
+ * @author Leonardo Gallo
  * @param <E>
  */
 public class ArbolAVL<E extends Comparable<E>> implements ArbolBinario<E> {
@@ -12,6 +12,7 @@ public class ArbolAVL<E extends Comparable<E>> implements ArbolBinario<E> {
         métodos get y set para cada variable
     */
     Nodo<E> raiz;
+    //...otras variables u objetos
     
     /**
      * COMÉNTAME...

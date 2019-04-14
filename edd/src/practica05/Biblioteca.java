@@ -2,7 +2,7 @@ package practica05;
 
 /**
  * Biblioteca de objetos ordenables.
- * @author Leonardo
+ * @author Leonardo Gallo
  * @param <E>
  */
 public class Biblioteca<E extends Comparable<E>> {
