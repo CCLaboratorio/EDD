@@ -1,5 +1,7 @@
 package practica05;
 
+import java.util.Collection;
+
 /**
  * Biblioteca de objetos ordenables.
  * @author Leonardo Gallo
@@ -12,9 +14,10 @@ public class Biblioteca<E extends Comparable<E>> {
     
     /**
      * COMÉNTAME...
-     * @param archivo
+     * @param <U>
+     * @param coleccion
      */
-    public void llenaAcervo(String archivo) {
+    public <U extends Collection<E>> void llenaAcervo(U coleccion) {
         //implementación
     }
     
