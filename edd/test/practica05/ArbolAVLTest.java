@@ -93,14 +93,14 @@ public class ArbolAVLTest {
         arbol.inserta(15);
         arbol.inserta(12);
         arbol.inserta(9);
-        assertEquals(MSG_ALTURA,3, arbol.daAltura());
+        assertEquals(MSG_ALTURA,4, arbol.daAltura());
         System.out.println("Los valores en el árbol" + arbol.toString());
         arbol.elimina(15);
-        assertEquals(MSG_ALTURA,3, arbol.daAltura());
+        assertEquals(MSG_ALTURA,4, arbol.daAltura());
         System.out.println("Los valores en el árbol" + arbol.toString());
         arbol.elimina(4);
         System.out.println("Los valores en el árbol" + arbol.toString());
-        assertEquals(MSG_ALTURA,2, arbol.daAltura());
+        assertEquals(MSG_ALTURA,3, arbol.daAltura());
         System.out.println("Los valores en el árbol" + arbol.toString());
     }
 
