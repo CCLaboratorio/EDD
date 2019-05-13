@@ -100,7 +100,7 @@ public class ArbolAVLTest {
         System.out.println("Los valores en el árbol" + arbol.toString());
         arbol.elimina(4);
         System.out.println("Los valores en el árbol" + arbol.toString());
-        assertEquals(MSG_ALTURA,3, arbol.daAltura());
+        assertEquals(MSG_ALTURA,4, arbol.daAltura());
         System.out.println("Los valores en el árbol" + arbol.toString());
     }
 
@@ -120,7 +120,7 @@ public class ArbolAVLTest {
         arbol.inserta(15);
         arbol.inserta(12);
         arbol.inserta(9);
-        Nodo<Integer> raiz = arbol.busca(13);
+        Nodo<Integer> raiz = arbol.busca(4);
         assertEquals("El valor de la raiz no coincide",4, (int)raiz.getValor());
         assertEquals(13, (int)raiz.getDerecho().getValor());
         assertEquals(2, (int)raiz.getIzquierdo().getValor());
